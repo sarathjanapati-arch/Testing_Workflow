@@ -1,0 +1,350 @@
+[
+  {
+    "id": "MS71",
+    "name": "Allergy & Clinical Immunology"
+  },
+  {
+    "id": "MS67",
+    "name": "Andrology"
+  },
+  {
+    "id": "MS18",
+    "name": "Anesthesiology"
+  },
+  {
+    "id": "MS35",
+    "name": "Bariatric (Obesity) Surgery"
+  },
+  {
+    "id": "MS56",
+    "name": "bno"
+  },
+  {
+    "id": "MS34",
+    "name": "Breast Surgery"
+  },
+  {
+    "id": "MS47",
+    "name": "but"
+  },
+  {
+    "id": "MS59",
+    "name": "cardio"
+  },
+  {
+    "id": "MS03",
+    "name": "Cardiology"
+  },
+  {
+    "id": "MS62",
+    "name": "Cardiothoracic Surgery"
+  },
+  {
+    "id": "MS43",
+    "name": "care"
+  },
+  {
+    "id": "MS33",
+    "name": "Colorectal Surgery"
+  },
+  {
+    "id": "MS75",
+    "name": "Critical Care Anesthesia"
+  },
+  {
+    "id": "MS25",
+    "name": "Critical Care Medicine"
+  },
+  {
+    "id": "MS58",
+    "name": "cvv"
+  },
+  {
+    "id": "MS44",
+    "name": "Dentist"
+  },
+  {
+    "id": "MS50",
+    "name": "dermatologist"
+  },
+  {
+    "id": "MS04",
+    "name": "Dermatology"
+  },
+  {
+    "id": "MS70",
+    "name": "Diabetology"
+  },
+  {
+    "id": "MS69",
+    "name": "Emergency Medicine"
+  },
+  {
+    "id": "MS15",
+    "name": "Endocrinology"
+  },
+  {
+    "id": "MS09",
+    "name": "ENT (Otorhinolaryngology)"
+  },
+  {
+    "id": "MS27",
+    "name": "Family Medicine"
+  },
+  {
+    "id": "MS41",
+    "name": "fhj"
+  },
+  {
+    "id": "MS79",
+    "name": "Foot & Ankle Surgery"
+  },
+  {
+    "id": "MS13",
+    "name": "Gastroenterology"
+  },
+  {
+    "id": "MS01",
+    "name": "General Medicine"
+  },
+  {
+    "id": "MS60",
+    "name": "General Surgery"
+  },
+  {
+    "id": "MS29",
+    "name": "Geriatrics"
+  },
+  {
+    "id": "MS06",
+    "name": "Gynecology"
+  },
+  {
+    "id": "MS55",
+    "name": "gyno"
+  },
+  {
+    "id": "MS78",
+    "name": "Hand Surgery"
+  },
+  {
+    "id": "MS21",
+    "name": "Hematology"
+  },
+  {
+    "id": "MS36",
+    "name": "Hepatology (Liver specialist)"
+  },
+  {
+    "id": "MS57",
+    "name": "hi"
+  },
+  {
+    "id": "MS22",
+    "name": "Immunology"
+  },
+  {
+    "id": "MS26",
+    "name": "Infectious Diseases"
+  },
+  {
+    "id": "MS68",
+    "name": "Interventional Radiology"
+  },
+  {
+    "id": "MS40",
+    "name": "nenom"
+  },
+  {
+    "id": "MS12",
+    "name": "Nephrology"
+  },
+  {
+    "id": "MS80",
+    "name": "Neurocritical Care"
+  },
+  {
+    "id": "MS52",
+    "name": "Neurogenetic"
+  },
+  {
+    "id": "MS54",
+    "name": "Neurogenics"
+  },
+  {
+    "id": "MS51",
+    "name": "neurology"
+  },
+  {
+    "id": "MS08",
+    "name": "Neurology"
+  },
+  {
+    "id": "MS61",
+    "name": "Neurosurgery"
+  },
+  {
+    "id": "MS49",
+    "name": "not"
+  },
+  {
+    "id": "MS30",
+    "name": "Nuclear Medicine"
+  },
+  {
+    "id": "MS16",
+    "name": "Oncology"
+  },
+  {
+    "id": "MS10",
+    "name": "Ophthalmology"
+  },
+  {
+    "id": "MS64",
+    "name": "Oral & Maxillofacial Surgery"
+  },
+  {
+    "id": "MS05",
+    "name": "Orthopedics"
+  },
+  {
+    "id": "MS72",
+    "name": "Pain Medicine"
+  },
+  {
+    "id": "MS74",
+    "name": "Palliative Medicine"
+  },
+  {
+    "id": "MS37",
+    "name": "Pancreatology"
+  },
+  {
+    "id": "MS20",
+    "name": "Pathology"
+  },
+  {
+    "id": "MS81",
+    "name": "Pediatric Cardiology"
+  },
+  {
+    "id": "MS85",
+    "name": "Pediatric Endocrinology"
+  },
+  {
+    "id": "MS84",
+    "name": "Pediatric Gastroenterology"
+  },
+  {
+    "id": "MS86",
+    "name": "Pediatric Nephrology"
+  },
+  {
+    "id": "MS82",
+    "name": "Pediatric Neurology"
+  },
+  {
+    "id": "MS87",
+    "name": "Pediatric Oncology"
+  },
+  {
+    "id": "MS83",
+    "name": "Pediatric Orthopedics"
+  },
+  {
+    "id": "MS63",
+    "name": "Pediatric Surgery"
+  },
+  {
+    "id": "MS02",
+    "name": "Pediatrics"
+  },
+  {
+    "id": "MS24",
+    "name": "Plastic Surgery"
+  },
+  {
+    "id": "MS45",
+    "name": "pretty"
+  },
+  {
+    "id": "MS07",
+    "name": "Psychiatry"
+  },
+  {
+    "id": "MS46",
+    "name": "psychology"
+  },
+  {
+    "id": "MS14",
+    "name": "Pulmonology"
+  },
+  {
+    "id": "MS48",
+    "name": "put"
+  },
+  {
+    "id": "MS19",
+    "name": "Radiology"
+  },
+  {
+    "id": "MS66",
+    "name": "Reproductive Medicine"
+  },
+  {
+    "id": "MS17",
+    "name": "Rheumatology"
+  },
+  {
+    "id": "MS73",
+    "name": "Sleep Medicine"
+  },
+  {
+    "id": "MS77",
+    "name": "Spine Surgery"
+  },
+  {
+    "id": "MS28",
+    "name": "Sports Medicine"
+  },
+  {
+    "id": "MS23",
+    "name": "Surgery"
+  },
+  {
+    "id": "MS39",
+    "name": "tedt"
+  },
+  {
+    "id": "MS38",
+    "name": "test"
+  },
+  {
+    "id": "MS32",
+    "name": "Thoracic Surgery"
+  },
+  {
+    "id": "MS65",
+    "name": "Transplant Surgery"
+  },
+  {
+    "id": "MS76",
+    "name": "Trauma Surgery"
+  },
+  {
+    "id": "MS42",
+    "name": "tst"
+  },
+  {
+    "id": "MS11",
+    "name": "Urology"
+  },
+  {
+    "id": "MS31",
+    "name": "Vascular Surgery"
+  },
+  {
+    "id": "MS53",
+    "name": "vedantu"
+  }
+]

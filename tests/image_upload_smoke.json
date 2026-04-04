@@ -1,0 +1,94 @@
+{
+  "run": {
+    "virtual_users": 1,
+    "iterations_per_user": 1,
+    "max_workers": 1,
+    "ramp_up_seconds": 0,
+    "think_time_ms": 0
+  },
+  "context": {
+    "base_url": "https://dsapi.thelocal.co.in",
+    "api_key": "ACIN-SDGESDFYRGFSDF",
+    "profile_image_path": "assets/upload_samples/profile.png"
+  },
+  "workflows": [
+    {
+      "name": "Image Upload Smoke",
+      "steps": [
+        {
+          "name": "Upload Image (file)",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/upload/image",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}"
+          },
+          "data": {
+            "text": "smoke"
+          },
+          "files": {
+            "file": "{{profile_image_path}}"
+          },
+          "timeout_seconds": 30,
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Upload Image (image)",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/upload/image",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}"
+          },
+          "data": {
+            "text": "smoke"
+          },
+          "files": {
+            "image": "{{profile_image_path}}"
+          },
+          "timeout_seconds": 30,
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Upload Image (multipartFile)",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/upload/image",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}"
+          },
+          "data": {
+            "text": "smoke"
+          },
+          "files": {
+            "multipartFile": "{{profile_image_path}}"
+          },
+          "timeout_seconds": 30,
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Upload Image (image + extra file)",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/upload/image",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}"
+          },
+          "data": {
+            "text": "smoke"
+          },
+          "files": {
+            "image": "{{profile_image_path}}",
+            "file": "{{profile_image_path}}"
+          },
+          "timeout_seconds": 30,
+          "expected": {
+            "status_code": 200
+          }
+        }
+      ]
+    }
+  ]
+}

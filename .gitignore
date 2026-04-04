@@ -1,0 +1,13 @@
+.env
+.venv/
+.uv-cache/
+__pycache__/
+*.pyc
+
+# Runtime output
+reports/
+output/
+tmp/
+
+# Ad-hoc probe files
+tmp_*.json
