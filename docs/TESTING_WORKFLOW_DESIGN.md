@@ -174,7 +174,7 @@ Keep toolset small and explicit:
 
 ## 9) Data Strategy: Random Doctor Registration
 Each virtual user should generate unique values:
-- email: `doctor+{run_id}_{user_id}_{rand}@domain.com`
+- email: `doctor.{run_id}.{user_id}.{rand}@domain.com`
 - phone/license IDs (if required): randomized suffix patterns
 - name/specialization can be sampled from test dictionaries
 

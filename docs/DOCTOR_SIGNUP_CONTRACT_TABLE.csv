@@ -4,7 +4,7 @@ endpoint_metadata,identity,method,string,yes,,POST,,,
 endpoint_metadata,identity,path,string,yes,,/dc/api-auth/v1/auth/doctor/signUp,,,
 endpoint_metadata,identity,full_url,string,yes,,https://dsapi.thelocal.co.in/dc/api-auth/v1/auth/doctor/signUp,,,
 endpoint_metadata,security,auth_requirement,string,yes,,ACIN-API-KEY header,,,
-endpoint_metadata,security,required_header.ACIN-API-KEY,string,yes,,ACIN-SDGESDFYRGFSDF,,,
+endpoint_metadata,security,required_header.ACIN-API-KEY,string,yes,,<from API_KEY env>,,,
 endpoint_metadata,request,content_type,string,yes,,application/json,,,
 endpoint_metadata,behavior,idempotency,string,yes,,Duplicate email/mobile should fail,,no,Non-idempotent create
 endpoint_metadata,behavior,rate_limit_behavior,string,no,TBD,,,,
@@ -17,7 +17,7 @@ request_contract,root,additionalSpecializationId,string,no,valid id if present,A
 request_contract,root,shortBio,string,yes,min 10 max 100,Experienced cardiologist with 10+ years,,,
 request_contract,root,yearsOfExperience,number,yes,min 0 max 80,12,,,
 request_contract,root,dateOfBirth,date,yes,must be past date,1985-04-12,,,
-request_contract,root,email,string,yes,unique email,doctor+run_uid@example.com,,,
+request_contract,root,email,string,yes,unique email,doctor.run_uid@example.com,,,
 request_contract,root,mobileNumber,string,yes,unique mobile number,7799352324,,,
 request_contract,root,gender,string,yes,enum TBD,Male,,,
 request_contract,root,password,string,yes,regex per source note,SivaAcintyo1@2,,,Source doc uses pazzword likely typo

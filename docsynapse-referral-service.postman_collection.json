@@ -1,0 +1,2148 @@
+{
+  "info": {
+    "_postman_id": "438baa2d-c20e-45b9-9fa9-c0830d8298de",
+    "name": "docsynapse-referral-service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47244680",
+    "_collection_link": "https://go.postman.co/collection/47244680-438baa2d-c20e-45b9-9fa9-c0830d8298de?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Referral",
+      "item": [
+        {
+          "name": "Create Referral",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwOTYiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxMzI3MjIwLCJleHAiOjE3NzE0MTM2MjB9.Sb3HJM-jXxEgfHmG8JJKq_WrJbHN1HQw5BKuZCtDJeSjkr15TSOa9-Y0ATXjOXcgWRhi_M0ySddjZA_noqhoZQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"creatorId\": \"DOC-1045\",\r\n  \"patientName\": \"Ramesh Kumar\",\r\n  \"patientAge\": 52,\r\n  \"patientGender\": \"MALE\",\r\n  \"patientContactNumber\": \"9876543210\",\r\n  \"patientEmail\": \"ramesh.kumar@gmail.com\",\r\n  \"concern\": \"Severe chest pain and shortness of breath for the last 2 days\",\r\n  \"specializationId\": \"ENDO-01\",\r\n  \"subSpecializationId\": \"ENDO-DIAB-02\",\r\n  \"reportUrl\": \"https://hospital-reports.s3.ap-south-1.amazonaws.com/reports/ecg-report-2026-02-17.pdf\",\r\n  \"referralPoints\": 150,\r\n  \"priorityType\": \"ROUTINE\",\r\n  \"followUpFlag\": \"Y\",\r\n  \"listOfDoctorIds\": [\r\n    \"DOC-1410\"\r\n  ],\r\n  \"specializationName\": \"Cardiology\",\r\n  \"subSpecializationName\": \"Non-Invasive Cardiology\",\r\n  \"specificCondition\": \"Suspected Acute Coronary Syndrome (ACS)\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/create-referral",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "create-referral"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Respone",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"doctorId\": \"DOC-1045\",\r\n  \"patientName\": \"Ramesh Kumar\",\r\n  \"patientAge\": 52,\r\n  \"patientGender\": \"MALE\",\r\n  \"patientContactNumber\": \"9876543210\",\r\n  \"patientEmail\": \"ramesh.kumar@gmail.com\",\r\n  \"concern\": \"Severe chest pain and shortness of breath for the last 2 days\",\r\n  \"specializationId\": \"ENDO-01\",\r\n  \"subSpecializationId\": \"ENDO-DIAB-02\",\r\n  \"reportUrl\": \"https://hospital-reports.s3.ap-south-1.amazonaws.com/reports/ecg-report-2026-02-17.pdf\",\r\n  \"referralPoints\": 150,\r\n  \"priorityType\": \"ROUTINE\",\r\n  \"followUpFlag\": \"Y\",\r\n  \"listOfDoctorIds\": [\r\n    \"DOC-1410\",\r\n    \"DOC-1420\"\r\n  ]\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-referral/v1/create-referral",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-referral",
+                    "v1",
+                    "create-referral"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 11:22:29 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Referral Saved.\",\n    \"data\": \"Referral Saved with id : a0305cf4-7c8d-4d67-8649-e7c8752a08ae\",\n    \"timeStamp\": \"2026-02-17T16:52:29.5568545\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Referral Details By Id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0MzMyNzM4LCJleHAiOjE3NzQ0MTkxMzh9.QpKxiotVwm6A9M509EsXPIxXVbFTmaizHKu4iYtwqj_Jcc_ztGIgBlqyyu0UucM6MEqtk9XGy3NEHMovoQnDbg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"referralId\": \"dca987ff-ab20-459b-ac4d-44a77ebfbb32\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/getByReferalId",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "getByReferalId"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"referralId\": \"078563dc-efb5-4bc4-a3c2-41b9c451cb89\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-referral/v1/getByReferalId",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-referral",
+                    "v1",
+                    "getByReferalId"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 03 Mar 2026 13:28:47 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Fetched the Referal Details.\",\n    \"data\": {\n        \"id\": \"078563dc-efb5-4bc4-a3c2-41b9c451cb89\",\n        \"creatorId\": \"DCSYNP000085\",\n        \"patientName\": \"Rahul Verma\",\n        \"patientAge\": 58,\n        \"patientGender\": \"MALE\",\n        \"patientContactNumber\": \"7577552201\",\n        \"patientEmail\": \"rahul.verma@gmail.com\",\n        \"concern\": \"Persistent chest discomfort, high BP, and dizziness for the past 3 days\",\n        \"specializationId\": \"CARDIO001\",\n        \"subSpecializationId\": \"NON_INVASIVE_CARDIO\",\n        \"reportUrl\": \"https://hospital-reports.s3.amazonaws.com/reports/rahul_verma_ecg.pdf\",\n        \"referralPoints\": 75,\n        \"referralStatus\": \"PENDING\",\n        \"priorityType\": \"EMERGENCY\",\n        \"followUpFlag\": \"N\",\n        \"cancelledBy\": null,\n        \"creatorName\": \"Dr. Siva Krishna\",\n        \"creatorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n        \"creatorHsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n        \"doctorResponseDtos\": [\n            {\n                \"id\": \"b750d8e7-61b4-4309-bfe1-1b97db9180e8\",\n                \"referredDoctorId\": \"DCSYNP000050\",\n                \"referredDoctorStatus\": \"PENDING\",\n                \"visitType\": null,\n                \"admittedDate\": \"2026-03-03T18:54:03.84786\",\n                \"doctorName\": \"sandhya\",\n                \"doctorImgUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0996a158-d72b-4e60-a8f7-46fd61f6bb9d.jpg\",\n                \"specializationName\": \"Anesthesiology\",\n                \"hsptlName\": null,\n                \"referralResponseDto\": null\n            }\n        ],\n        \"specializationName\": \"Cardiology\",\n        \"subSpecializationName\": \"Non-Invasive Cardiology\",\n        \"specificCondition\": \"Suspected Acute Coronary Syndrome (ACS)\"\n    },\n    \"timeStamp\": \"2026-03-03T18:58:47.571855\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Referred By Doctor",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"creatorId\": \"DCSYNP000075\"\r\n//   \"searchKey\": \"String\"   The searchKey is optional. You only need to pass the searchKey if you want to search by doctor's name or patient's name. \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/getAllReferred/byCreator?page=0&size=10",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "getAllReferred",
+                "byCreator"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"creatorId\": \"DCSYNP000085\"\r\n//   \"searchKey\": \"String\"   The searchKey is optional. You only need to pass the searchKey if you want to search by doctor's name or patient's name. \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-referral/v1/getAllReferred/byCreator?page=0&size=10",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-referral",
+                    "v1",
+                    "getAllReferred",
+                    "byCreator"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 03 Mar 2026 13:29:52 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Successfully fetched the all refer details.\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": \"4a016637-3c5e-4b51-beee-8185a94f996b\",\n                \"creatorId\": \"DCSYNP000085\",\n                \"patientName\": \"Ravi Kumar\",\n                \"patientAge\": 45,\n                \"patientGender\": \"MALE\",\n                \"patientContactNumber\": \"8831044219\",\n                \"patientEmail\": \"ravi.kumar@gmail.com\",\n                \"concern\": \"Severe chest pain and shortness of breath since morning\",\n                \"specializationId\": \"SPEC_CARDIO_01\",\n                \"subSpecializationId\": \"SUBSPEC_INTERVENTIONAL_01\",\n                \"reportUrl\": \"https://hospitalreports.com/reports/ravi_kumar_ecg.pdf\",\n                \"referralPoints\": 50,\n                \"referralStatus\": \"PENDING\",\n                \"priorityType\": \"EMERGENCY\",\n                \"followUpFlag\": \"N\",\n                \"cancelledBy\": null,\n                \"creatorName\": \"Dr. Siva Krishna\",\n                \"creatorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                \"creatorHsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"doctorResponseDtos\": [\n                    {\n                        \"id\": \"cd1ec75b-32a9-4b24-a2d0-dae21aadd916\",\n                        \"referredDoctorId\": \"DCSYNP000050\",\n                        \"referredDoctorStatus\": \"PENDING\",\n                        \"visitType\": null,\n                        \"admittedDate\": \"2026-03-02T12:17:02.297991\",\n                        \"doctorName\": \"Dr. Siva Krishna\",\n                        \"doctorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                        \"specializationName\": \"Anesthesiology\",\n                        \"hsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                        \"referralResponseDto\": null\n                    }\n                ],\n                \"specializationName\": \"Anesthesiology\",\n                \"subSpecializationName\": null,\n                \"specificCondition\": null\n            },\n            {\n                \"id\": \"7cf3a20e-1f28-4b46-9550-31b158055aa8\",\n                \"creatorId\": \"DCSYNP000085\",\n                \"patientName\": \"Rakesh Kumar\",\n                \"patientAge\": 45,\n                \"patientGender\": \"MALE\",\n                \"patientContactNumber\": \"8831044219\",\n                \"patientEmail\": \"ravi.kumar@gmail.com\",\n                \"concern\": \"Severe chest pain and shortness of breath since morning\",\n                \"specializationId\": \"SPEC_CARDIO_01\",\n                \"subSpecializationId\": \"SUBSPEC_INTERVENTIONAL_01\",\n                \"reportUrl\": \"https://hospitalreports.com/reports/ravi_kumar_ecg.pdf\",\n                \"referralPoints\": 50,\n                \"referralStatus\": \"PENDING\",\n                \"priorityType\": \"EMERGENCY\",\n                \"followUpFlag\": \"N\",\n                \"cancelledBy\": null,\n                \"creatorName\": \"Dr. Siva Krishna\",\n                \"creatorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                \"creatorHsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"doctorResponseDtos\": [\n                    {\n                        \"id\": \"2190eb42-100c-4c95-8b8c-fc78ef5693d3\",\n                        \"referredDoctorId\": \"DCSYNP000050\",\n                        \"referredDoctorStatus\": \"PENDING\",\n                        \"visitType\": null,\n                        \"admittedDate\": \"2026-03-02T12:51:29.230902\",\n                        \"doctorName\": \"Dr. Siva Krishna\",\n                        \"doctorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                        \"specializationName\": \"Anesthesiology\",\n                        \"hsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                        \"referralResponseDto\": null\n                    }\n                ],\n                \"specializationName\": \"Anesthesiology\",\n                \"subSpecializationName\": null,\n                \"specificCondition\": null\n            },\n            {\n                \"id\": \"6f612db5-93a8-4ae6-b67c-5cea345af5a5\",\n                \"creatorId\": \"DCSYNP000085\",\n                \"patientName\": \"Aman Kumar\",\n                \"patientAge\": 45,\n                \"patientGender\": \"MALE\",\n                \"patientContactNumber\": \"8831044219\",\n                \"patientEmail\": \"ravi.kumar@gmail.com\",\n                \"concern\": \"Severe chest pain and shortness of breath since morning\",\n                \"specializationId\": \"SPEC_CARDIO_01\",\n                \"subSpecializationId\": \"SUBSPEC_INTERVENTIONAL_01\",\n                \"reportUrl\": \"https://hospitalreports.com/reports/ravi_kumar_ecg.pdf\",\n                \"referralPoints\": 50,\n                \"referralStatus\": \"PENDING\",\n                \"priorityType\": \"EMERGENCY\",\n                \"followUpFlag\": \"N\",\n                \"cancelledBy\": null,\n                \"creatorName\": \"Dr. Siva Krishna\",\n                \"creatorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                \"creatorHsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"doctorResponseDtos\": [\n                    {\n                        \"id\": \"45224f71-3710-4ab5-9375-995afd208362\",\n                        \"referredDoctorId\": \"DCSYNP000050\",\n                        \"referredDoctorStatus\": \"PENDING\",\n                        \"visitType\": null,\n                        \"admittedDate\": \"2026-03-02T13:20:01.996852\",\n                        \"doctorName\": \"sandhya\",\n                        \"doctorImgUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0996a158-d72b-4e60-a8f7-46fd61f6bb9d.jpg\",\n                        \"specializationName\": \"Anesthesiology\",\n                        \"hsptlName\": null,\n                        \"referralResponseDto\": null\n                    }\n                ],\n                \"specializationName\": \"Anesthesiology\",\n                \"subSpecializationName\": null,\n                \"specificCondition\": null\n            },\n            {\n                \"id\": \"768a302b-91a1-420a-afb2-649571c90927\",\n                \"creatorId\": \"DCSYNP000085\",\n                \"patientName\": \"Anita Sharma\",\n                \"patientAge\": 45,\n                \"patientGender\": \"FEMALE\",\n                \"patientContactNumber\": \"8920038394\",\n                \"patientEmail\": \"anita.sharma@gmail.com\",\n                \"concern\": \"Severe chest pain and shortness of breath from last 2 days\",\n                \"specializationId\": \"CARDIO001\",\n                \"subSpecializationId\": \"INTERVENTIONAL_CARDIO\",\n                \"reportUrl\": \"https://hospital-reports.s3.amazonaws.com/reports/report123.pdf\",\n                \"referralPoints\": 50,\n                \"referralStatus\": \"PENDING\",\n                \"priorityType\": \"EMERGENCY\",\n                \"followUpFlag\": \"Y\",\n                \"cancelledBy\": null,\n                \"creatorName\": \"Dr. Siva Krishna\",\n                \"creatorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                \"creatorHsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"doctorResponseDtos\": [\n                    {\n                        \"id\": \"5ed9b27a-d573-49d4-af92-9a355d7b7c3e\",\n                        \"referredDoctorId\": \"DCSYNP000050\",\n                        \"referredDoctorStatus\": \"PENDING\",\n                        \"visitType\": null,\n                        \"admittedDate\": \"2026-03-03T15:44:23.695017\",\n                        \"doctorName\": \"sandhya\",\n                        \"doctorImgUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0996a158-d72b-4e60-a8f7-46fd61f6bb9d.jpg\",\n                        \"specializationName\": \"Anesthesiology\",\n                        \"hsptlName\": null,\n                        \"referralResponseDto\": null\n                    }\n                ],\n                \"specializationName\": \"Anesthesiology\",\n                \"subSpecializationName\": null,\n                \"specificCondition\": null\n            },\n            {\n                \"id\": \"078563dc-efb5-4bc4-a3c2-41b9c451cb89\",\n                \"creatorId\": \"DCSYNP000085\",\n                \"patientName\": \"Rahul Verma\",\n                \"patientAge\": 58,\n                \"patientGender\": \"MALE\",\n                \"patientContactNumber\": \"7577552201\",\n                \"patientEmail\": \"rahul.verma@gmail.com\",\n                \"concern\": \"Persistent chest discomfort, high BP, and dizziness for the past 3 days\",\n                \"specializationId\": \"CARDIO001\",\n                \"subSpecializationId\": \"NON_INVASIVE_CARDIO\",\n                \"reportUrl\": \"https://hospital-reports.s3.amazonaws.com/reports/rahul_verma_ecg.pdf\",\n                \"referralPoints\": 75,\n                \"referralStatus\": \"PENDING\",\n                \"priorityType\": \"EMERGENCY\",\n                \"followUpFlag\": \"N\",\n                \"cancelledBy\": null,\n                \"creatorName\": \"Dr. Siva Krishna\",\n                \"creatorImgUrl\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/d27cc237-d972-429d-a24b-3e2da9bb59b8.jpg\",\n                \"creatorHsptlName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"doctorResponseDtos\": [\n                    {\n                        \"id\": \"b750d8e7-61b4-4309-bfe1-1b97db9180e8\",\n                        \"referredDoctorId\": \"DCSYNP000050\",\n                        \"referredDoctorStatus\": \"PENDING\",\n                        \"visitType\": null,\n                        \"admittedDate\": \"2026-03-03T18:54:03.84786\",\n                        \"doctorName\": \"sandhya\",\n                        \"doctorImgUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0996a158-d72b-4e60-a8f7-46fd61f6bb9d.jpg\",\n                        \"specializationName\": \"Anesthesiology\",\n                        \"hsptlName\": null,\n                        \"referralResponseDto\": null\n                    }\n                ],\n                \"specializationName\": \"Cardiology\",\n                \"subSpecializationName\": \"Non-Invasive Cardiology\",\n                \"specificCondition\": \"Suspected Acute Coronary Syndrome (ACS)\"\n            }\n        ],\n        \"empty\": false,\n        \"first\": true,\n        \"last\": true,\n        \"number\": 0,\n        \"numberOfElements\": 5,\n        \"pageable\": {\n            \"offset\": 0,\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"paged\": true,\n            \"sort\": [],\n            \"unpaged\": false\n        },\n        \"size\": 10,\n        \"sort\": [],\n        \"totalElements\": 5,\n        \"totalPages\": 1\n    },\n    \"timeStamp\": \"2026-03-03T18:59:52.9051887\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Total Received",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \r\n  \"creatorId\": \"DCSYNP000096\",\r\n  \"status\": \"PENDING\"\r\n//   \"searchKey\": \"String\"   The searchKey is optional. You only need to pass the searchKey if you want to search by doctor's name or patient's name. \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/total-received/patients?page=0&size=10",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "total-received",
+                "patients"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{  \r\n  \"creatorId\": \"DOC-201\",\r\n  \"status\": \"PENDING\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-referral/v1/total-received/patients?page=0&size=10",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-referral",
+                    "v1",
+                    "total-received",
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 25 Feb 2026 06:30:47 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Successfully fetched patient refer details.\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": \"8885ad70-5e6d-4530-ac86-d24f6dfaf289\",\n                \"referredDoctorId\": \"DOC-201\",\n                \"referredDoctorStatus\": \"PENDING\",\n                \"visitType\": null,\n                \"admittedDate\": \"2026-02-23T10:04:22.358036\",\n                \"referralResponseDto\": {\n                    \"id\": \"b975c234-0637-443e-9897-ab5af3d031cd\",\n                    \"creatorId\": \"DOC-202\",\n                    \"patientName\": \"Rahul Verma\",\n                    \"patientAge\": 29,\n                    \"patientGender\": \"MALE\",\n                    \"patientContactNumber\": \"9988776655\",\n                    \"patientEmail\": \"rahul.verma@gmail.com\",\n                    \"concern\": \"Right wrist fracture after bike accident\",\n                    \"specializationId\": \"ORTHO-01\",\n                    \"subSpecializationId\": \"ORTHO-TRAUMA-02\",\n                    \"reportUrl\": \"https://hospital-reports.s3.ap-south-1.amazonaws.com/reports/xray-wrist.pdf\",\n                    \"referralPoints\": 150,\n                    \"referralStatus\": \"PENDING\",\n                    \"priorityType\": \"ROUTINE\",\n                    \"followUpFlag\": \"N\",\n                    \"doctorResponseDtos\": null\n                }\n            }\n        ],\n        \"empty\": false,\n        \"first\": true,\n        \"last\": true,\n        \"number\": 0,\n        \"numberOfElements\": 1,\n        \"pageable\": {\n            \"offset\": 0,\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"paged\": true,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"unpaged\": false\n        },\n        \"size\": 10,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"totalElements\": 1,\n        \"totalPages\": 1\n    },\n    \"timeStamp\": \"2026-02-25T12:00:47.6660442\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Total Referred Accepted/Rejected",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"creatorId\": \"DCSYNP000033\",\r\n  \"status\": \"ACCEPTED\"\r\n//   \"searchKey\": \"String\"   The searchKey is optional. You only need to pass the searchKey if you want to search by doctor's name or patient's name. \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/total-referred/patients?page=0&size=10",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "total-referred",
+                "patients"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"creatorId\": \"DOC-101\",\r\n  \"status\": \"ACCEPTED\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-referral/v1/total-referred/patients?page=0&size=10",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-referral",
+                    "v1",
+                    "total-referred",
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 25 Feb 2026 06:32:52 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Successfully fetched the patients.\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": \"041e84b3-1d33-4f71-a384-e40996bf0851\",\n                \"creatorId\": \"DOC-101\",\n                \"patientName\": \"Ramesh Kumar\",\n                \"patientAge\": 52,\n                \"patientGender\": \"MALE\",\n                \"patientContactNumber\": \"9876543210\",\n                \"patientEmail\": \"ramesh.kumar@gmail.com\",\n                \"concern\": \"Severe chest pain radiating to left arm and shortness of breath for the last 2 days\",\n                \"specializationId\": \"CARD-01\",\n                \"subSpecializationId\": \"CARD-INTERVENTIONAL-02\",\n                \"reportUrl\": \"https://hospital-reports.s3.ap-south-1.amazonaws.com/reports/ecg-report-2026-02-17.pdf\",\n                \"referralPoints\": 150,\n                \"referralStatus\": \"ACCEPTED\",\n                \"priorityType\": \"ROUTINE\",\n                \"followUpFlag\": \"N\",\n                \"doctorResponseDtos\": [\n                    {\n                        \"id\": \"8f3cb861-421c-4342-9b3a-6d40d94c2b9c\",\n                        \"referredDoctorId\": \"DOC-201\",\n                        \"referredDoctorStatus\": \"ACCEPTED\",\n                        \"visitType\": null,\n                        \"admittedDate\": \"2026-02-23T09:47:32.753511\",\n                        \"referralResponseDto\": null\n                    }\n                ]\n            }\n        ],\n        \"empty\": false,\n        \"first\": true,\n        \"last\": true,\n        \"number\": 0,\n        \"numberOfElements\": 1,\n        \"pageable\": {\n            \"offset\": 0,\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"paged\": true,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"unpaged\": false\n        },\n        \"size\": 10,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"totalElements\": 1,\n        \"totalPages\": 1\n    },\n    \"timeStamp\": \"2026-02-25T12:02:52.2950533\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Referral",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwOTYiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxMzI3MjIwLCJleHAiOjE3NzE0MTM2MjB9.Sb3HJM-jXxEgfHmG8JJKq_WrJbHN1HQw5BKuZCtDJeSjkr15TSOa9-Y0ATXjOXcgWRhi_M0ySddjZA_noqhoZQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"referralId\": \"df9f84d6-3817-497a-be36-2a2268ecac44\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/delete-referral",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "delete-referral"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Referral",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwOTYiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxMzI3MjIwLCJleHAiOjE3NzE0MTM2MjB9.Sb3HJM-jXxEgfHmG8JJKq_WrJbHN1HQw5BKuZCtDJeSjkr15TSOa9-Y0ATXjOXcgWRhi_M0ySddjZA_noqhoZQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refferalId\": \"df9f84d6-3817-497a-be36-2a2268ecac44\",\r\n  \"creatorId\": \"DOC-1055\",\r\n  \"patientName\": \"Arjun Verma\",\r\n  \"patientAge\": 40,\r\n  \"patientGender\": \"MALE\",\r\n  \"patientContactNumber\": \"9988776655\",\r\n  \"patientEmail\": \"arjun.verma@gmail.com\",\r\n  \"concern\": \"Uncontrolled diabetes and frequent dizziness\",\r\n  \"specializationId\": \"ENDO-01\",\r\n  \"subSpecializationId\": \"ENDO-DIAB-02\",\r\n  \"reportUrl\": \"https://hospitalreports.s3.amazonaws.com/reports/arjun-blood-report.pdf\",\r\n  \"referralPoints\": 105,\r\n  \"priorityType\": \"ROUTINE\",\r\n  \"followUpFlag\": \"Y\",\r\n  \"listOfDoctorIds\": [\r\n    \"DOC-1300\"\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/update-referral",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "update-referral"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0MzMyNzM4LCJleHAiOjE3NzQ0MTkxMzh9.QpKxiotVwm6A9M509EsXPIxXVbFTmaizHKu4iYtwqj_Jcc_ztGIgBlqyyu0UucM6MEqtk9XGy3NEHMovoQnDbg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"specializationType\":\"MAIN\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-auth/v1/master/specializations/search",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-auth",
+                "v1",
+                "master",
+                "specializations",
+                "search"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"specializationType\":\"MAIN\"\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-auth/v1/master/specializations/search",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-auth",
+                    "v1",
+                    "master",
+                    "specializations",
+                    "search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 13:15:41 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "Vary",
+                  "value": "origin,access-control-request-method,access-control-request-headers,accept-encoding"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"MAIN Specializations Retrieved Successfully \",\n    \"data\": [\n        {\n            \"id\": \"MS18\",\n            \"name\": \"Anesthesiology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS03\",\n            \"name\": \"Cardiology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS25\",\n            \"name\": \"Critical Care Medicine\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS04\",\n            \"name\": \"Dermatology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS15\",\n            \"name\": \"Endocrinology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS09\",\n            \"name\": \"ENT (Otorhinolaryngology)\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS27\",\n            \"name\": \"Family Medicine\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS13\",\n            \"name\": \"Gastroenterology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS01\",\n            \"name\": \"General Medicine\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS29\",\n            \"name\": \"Geriatrics\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS06\",\n            \"name\": \"Gynecology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS21\",\n            \"name\": \"Hematology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS22\",\n            \"name\": \"Immunology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS26\",\n            \"name\": \"Infectious Diseases\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS12\",\n            \"name\": \"Nephrology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS08\",\n            \"name\": \"Neurology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS30\",\n            \"name\": \"Nuclear Medicine\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS16\",\n            \"name\": \"Oncology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS10\",\n            \"name\": \"Ophthalmology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS05\",\n            \"name\": \"Orthopedics\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS20\",\n            \"name\": \"Pathology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS02\",\n            \"name\": \"Pediatrics\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS24\",\n            \"name\": \"Plastic Surgery\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS07\",\n            \"name\": \"Psychiatry\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS14\",\n            \"name\": \"Pulmonology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS19\",\n            \"name\": \"Radiology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS17\",\n            \"name\": \"Rheumatology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS28\",\n            \"name\": \"Sports Medicine\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS23\",\n            \"name\": \"Surgery\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"MS11\",\n            \"name\": \"Urology\",\n            \"mainSpecializationId\": null,\n            \"subSpecializationId\": null\n        }\n    ],\n    \"timeStamp\": \"2026-02-17T18:45:41.6062939\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Sub Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwOTYiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxMzI3MjIwLCJleHAiOjE3NzE0MTM2MjB9.Sb3HJM-jXxEgfHmG8JJKq_WrJbHN1HQw5BKuZCtDJeSjkr15TSOa9-Y0ATXjOXcgWRhi_M0ySddjZA_noqhoZQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"specializationType\":\"SUB\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-auth/v1/master/specializations/search",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-auth",
+                "v1",
+                "master",
+                "specializations",
+                "search"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"specializationType\":\"SUB\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-auth/v1/master/specializations/search",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-auth",
+                    "v1",
+                    "master",
+                    "specializations",
+                    "search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 13:12:08 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "Vary",
+                  "value": "origin,access-control-request-method,access-control-request-headers,accept-encoding"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"SUB Specializations Retrieved Successfully \",\n    \"data\": [\n        {\n            \"id\": \"SS18\",\n            \"name\": \"Andrology\",\n            \"mainSpecializationId\": \"MS11\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS10\",\n            \"name\": \"Child Psychiatry\",\n            \"mainSpecializationId\": \"MS07\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS27\",\n            \"name\": \"Clinical Immunology\",\n            \"mainSpecializationId\": \"MS22\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS04\",\n            \"name\": \"Cosmetic Dermatology\",\n            \"mainSpecializationId\": \"MS04\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS13\",\n            \"name\": \"Epileptology\",\n            \"mainSpecializationId\": \"MS08\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS11\",\n            \"name\": \"Geriatric Psychiatry\",\n            \"mainSpecializationId\": \"MS07\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS17\",\n            \"name\": \"Glaucoma Specialist\",\n            \"mainSpecializationId\": \"MS10\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS20\",\n            \"name\": \"Hepatology\",\n            \"mainSpecializationId\": \"MS13\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS01\",\n            \"name\": \"Interventional Cardiology\",\n            \"mainSpecializationId\": \"MS03\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS23\",\n            \"name\": \"Interventional Pulmonology\",\n            \"mainSpecializationId\": \"MS14\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS30\",\n            \"name\": \"Interventional Radiology\",\n            \"mainSpecializationId\": \"MS19\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS07\",\n            \"name\": \"Joint Replacement\",\n            \"mainSpecializationId\": \"MS05\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS24\",\n            \"name\": \"Medical Oncology\",\n            \"mainSpecializationId\": \"MS16\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS12\",\n            \"name\": \"Neurophysiology\",\n            \"mainSpecializationId\": \"MS08\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS03\",\n            \"name\": \"Non-Invasive Cardiology\",\n            \"mainSpecializationId\": \"MS03\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS08\",\n            \"name\": \"Obstetrics\",\n            \"mainSpecializationId\": \"MS06\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS15\",\n            \"name\": \"Otology\",\n            \"mainSpecializationId\": \"MS09\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS28\",\n            \"name\": \"Pain Medicine\",\n            \"mainSpecializationId\": \"MS18\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS21\",\n            \"name\": \"Pancreatology\",\n            \"mainSpecializationId\": \"MS13\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS02\",\n            \"name\": \"Pediatric Cardiology\",\n            \"mainSpecializationId\": \"MS03\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS05\",\n            \"name\": \"Pediatric Dermatology\",\n            \"mainSpecializationId\": \"MS04\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS26\",\n            \"name\": \"Pediatric Rheumatology\",\n            \"mainSpecializationId\": \"MS17\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS09\",\n            \"name\": \"Reproductive Endocrinology\",\n            \"mainSpecializationId\": \"MS06\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS16\",\n            \"name\": \"Retina Specialist\",\n            \"mainSpecializationId\": \"MS10\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS14\",\n            \"name\": \"Rhinology\",\n            \"mainSpecializationId\": \"MS09\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS22\",\n            \"name\": \"Sleep Medicine\",\n            \"mainSpecializationId\": \"MS14\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS06\",\n            \"name\": \"Spine Surgery\",\n            \"mainSpecializationId\": \"MS05\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS25\",\n            \"name\": \"Surgical Oncology\",\n            \"mainSpecializationId\": \"MS16\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS29\",\n            \"name\": \"Trauma Critical Care\",\n            \"mainSpecializationId\": \"MS25\",\n            \"subSpecializationId\": null\n        },\n        {\n            \"id\": \"SS19\",\n            \"name\": \"Uro-Oncology\",\n            \"mainSpecializationId\": \"MS11\",\n            \"subSpecializationId\": null\n        }\n    ],\n    \"timeStamp\": \"2026-02-17T18:42:08.4272065\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Doctor",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{host}}/dc/api-auth/v1/doctor/get/all/doctors",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-auth",
+                "v1",
+                "doctor",
+                "get",
+                "all",
+                "doctors"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Audit-Id",
+                    "value": "Indal",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{host}}/dc/api-auth/v1/doctor/get/all/doctors",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-auth",
+                    "v1",
+                    "doctor",
+                    "get",
+                    "all",
+                    "doctors"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 13:23:33 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "Vary",
+                  "value": "origin,access-control-request-method,access-control-request-headers,accept-encoding"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Profiles Retrieved\",\n    \"data\": [\n        {\n            \"id\": \"DCSYNP000050\",\n            \"fullname\": \"sandhya\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0996a158-d72b-4e60-a8f7-46fd61f6bb9d.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000053\",\n            \"fullname\": \"Kalyani Sindhuja\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/f0dad8bd-793a-4fd8-ba70-e4e11bcadf7c.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000055\",\n            \"fullname\": \"Venkat\",\n            \"specialization\": \"MS04\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/ba5164d2-b0d0-4cc5-a7b7-0d6941653c86.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000059\",\n            \"fullname\": \"Meghana Kadimi\",\n            \"specialization\": \"MS03\",\n            \"profileId\": \"\"\n        },\n        {\n            \"id\": \"DCSYNP000092\",\n            \"fullname\": \"KODURU VISWANATH\",\n            \"specialization\": \"MS08\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/175dabf0-94d2-40d8-bf3d-a74e833ef40b.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000003\",\n            \"fullname\": \"Dr. Meghana\",\n            \"specialization\": \"MS03\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/a19bda6d-0cee-4973-817f-35933b71813c.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000096\",\n            \"fullname\": \"KONDRU BALA KISHORE\",\n            \"specialization\": \"MS03\",\n            \"profileId\": \"\"\n        },\n        {\n            \"id\": \"DCSYNP000098\",\n            \"fullname\": \"Mark Antony\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/7ac92379-3b41-414d-90c1-af4028442cf3.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000033\",\n            \"fullname\": \"Sandhya\",\n            \"specialization\": \"MS03\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/e1799079-daf4-4817-bb75-1650da07675f.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000075\",\n            \"fullname\": \"vasavi\",\n            \"specialization\": \"MS04\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/80a0b115-e457-4040-9a90-8086e277d538jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000076\",\n            \"fullname\": \"Gaura Kumar\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"\"\n        },\n        {\n            \"id\": \"DCSYNP000095\",\n            \"fullname\": \"Dr. Siva Krishna\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"\"\n        },\n        {\n            \"id\": \"DCSYNP000099\",\n            \"fullname\": \"Bhavya sri\",\n            \"specialization\": \"MS06\",\n            \"profileId\": \"\"\n        },\n        {\n            \"id\": \"DCSYNP000097\",\n            \"fullname\": \"vasavi\",\n            \"specialization\": \"MS06\",\n            \"profileId\": \"\"\n        },\n        {\n            \"id\": \"DCSYNP000100\",\n            \"fullname\": \"Sunandana Kolla\",\n            \"specialization\": \"MS04\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/b61916ad-c901-4ae3-b518-387ef03cb858.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000073\",\n            \"fullname\": \"Thirumala kumari\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/8f984599-2da1-47c1-896d-7cb9d6cf4332.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000085\",\n            \"fullname\": \"Dr. Siva Krishna\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/9eff2fe1-8426-4a43-b5f5-34d854d3183b.jpg\"\n        },\n        {\n            \"id\": \"DCSYNP000071\",\n            \"fullname\": \"Dr. Siva Krishna\",\n            \"specialization\": \"MS18\",\n            \"profileId\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/e04a8228-ccee-4794-95e3-3d2a6a19474b.jpg\"\n        }\n    ],\n    \"timeStamp\": \"2026-02-17T18:53:33.3335154\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Doctor ById",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0MzMyNzM4LCJleHAiOjE3NzQ0MTkxMzh9.QpKxiotVwm6A9M509EsXPIxXVbFTmaizHKu4iYtwqj_Jcc_ztGIgBlqyyu0UucM6MEqtk9XGy3NEHMovoQnDbg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "ACIN-API-KEY",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": \"DCSYNP000033\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-auth/v1/doctor/get/by-id",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-auth",
+                "v1",
+                "doctor",
+                "get",
+                "by-id"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "ACIN-API-KEY",
+                    "value": "{{api_key}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"DCSYNP000033\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/dc/api-auth/v1/doctor/get/by-id",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "dc",
+                    "api-auth",
+                    "v1",
+                    "doctor",
+                    "get",
+                    "by-id"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx/1.24.0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 26 Feb 2026 10:07:55 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "Vary",
+                  "value": "origin,access-control-request-method,access-control-request-headers,accept-encoding"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Profile Retrieved\",\n    \"data\": {\n        \"id\": \"DCSYNP000033\",\n        \"medicalCouncilBoard\": \"Andhra Pradesh Medical Council\",\n        \"registrationNumber\": \"AP100001234\",\n        \"fullname\": \"Sandhya\",\n        \"gender\": \"Male\",\n        \"specializationId\": \"MS03\",\n        \"subSpecializationId\": \"SS02\",\n        \"additionalSpecializationId\": \"AS03\",\n        \"shortBio\": \"I am sandhya hajjabqkkavkvwnaknw\",\n        \"yearsOfExperience\": 1,\n        \"dateOfBirth\": \"2001-11-22\",\n        \"email\": \"sandhya.dokkala@acintyotech.ai\",\n        \"mobileNumber\": \"9294052010\",\n        \"experience\": [\n            {\n                \"id\": \"3dc11a4b-e9dc-4635-9ad1-0cf1173de0fc\",\n                \"companyId\": \"DCSYNPCOM000015\",\n                \"companyName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"logoUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0911d050-f061-46d2-9ebc-49c77b506481.png\",\n                \"jobTitle\": \"senior doctor\",\n                \"currentlyWorking\": \"Y\",\n                \"startDate\": \"2026-02-01\",\n                \"endDate\": null,\n                \"location\": \"hyderabad\",\n                \"locationType\": \"REMOTE\",\n                \"description\": \"cardiology doctor\",\n                \"jobSource\": \"LinkedIn\",\n                \"skills\": [\n                    {\n                        \"skillId\": \"SKL001\",\n                        \"skillName\": \"General Medicine\"\n                    }\n                ]\n            }\n        ],\n        \"medicalIdUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/fec9f42f-9e32-461a-bca1-3c8f78e29fb4.jpg\",\n        \"renewalDate\": null,\n        \"cmeCreditsAvailable\": null,\n        \"openToReferrals\": \"Y\",\n        \"expertOpinions\": \"Y\",\n        \"teachJuniors\": null,\n        \"consultationMode\": [\n            \"TELEMEDICINE\"\n        ],\n        \"profilePhotoId\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/c5caddae-6352-4059-8cd8-c824ac3a9ac7.jpg\",\n        \"coverPhotoId\": \"https://acintyotech-admin.s3.ap-south-1.amazonaws.com/assets/09bfeb76-c19a-40a5-a293-9092e9558681.jpg\",\n        \"interested\": [],\n        \"isActive\": \"Y\",\n        \"accountVerified\": \"P\",\n        \"headLine\": \"Sandhya Dokkala\",\n        \"country\": \"USA\",\n        \"city\": \"Los Angeles\",\n        \"educations\": [\n            {\n                \"educationId\": \"c1e0f13c-e443-4662-94cd-b463f87b8785\",\n                \"schoolId\": \"SCH0003\",\n                \"schoolName\": \"AIIMS Bhopal\",\n                \"logoUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/66ff36b9-cf1f-46c4-991a-22c3416f6f56.jpg\",\n                \"degreeId\": \"DEG001\",\n                \"degreeName\": \"Bachelor of Medicine and Bachelor of Surgery\",\n                \"fieldId\": \"FOS021\",\n                \"fieldName\": \"Biochemistry\",\n                \"startDate\": \"2020-02-26\",\n                \"endDate\": \"2023-02-17\",\n                \"grade\": \"\",\n                \"activities\": \"\",\n                \"description\": \"\",\n                \"skills\": null\n            }\n        ],\n        \"skills\": [\n            {\n                \"rowId\": \"195ed7d1-fa41-481a-9708-9e2e297622f0\",\n                \"masterSkillId\": \"SKL001\",\n                \"skillName\": \"General Medicine\",\n                \"source\": \"EXPERIENCE\",\n                \"jobTitle\": \"senior doctor\",\n                \"companyId\": \"DCSYNPCOM000015\",\n                \"companyName\": \"KIMS-Ushalakshmi Centre for Breast Diseases\",\n                \"companyLogo\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/0911d050-f061-46d2-9ebc-49c77b506481.png\",\n                \"schoolId\": null,\n                \"schoolName\": null,\n                \"schoolLogo\": null,\n                \"certificationId\": null,\n                \"certificationName\": null,\n                \"issuerId\": null,\n                \"issuerName\": null,\n                \"issuerLogoUrl\": null,\n                \"endorsementCount\": null,\n                \"primary\": null,\n                \"verified\": null\n            },\n            {\n                \"rowId\": \"a3871763-57a6-4253-bd52-ff0abe0380fb\",\n                \"masterSkillId\": \"SKL002\",\n                \"skillName\": \"Cardiology\",\n                \"source\": \"PROFILE\",\n                \"jobTitle\": null,\n                \"companyId\": null,\n                \"companyName\": null,\n                \"companyLogo\": null,\n                \"schoolId\": null,\n                \"schoolName\": null,\n                \"schoolLogo\": null,\n                \"certificationId\": null,\n                \"certificationName\": null,\n                \"issuerId\": null,\n                \"issuerName\": null,\n                \"issuerLogoUrl\": null,\n                \"endorsementCount\": null,\n                \"primary\": null,\n                \"verified\": null\n            }\n        ],\n        \"languages\": [],\n        \"certifications\": [\n            {\n                \"certificationRowId\": \"cecaf319-bd0d-4461-99e9-4de843f8ae39\",\n                \"certificationId\": \"CERT002\",\n                \"certificationName\": \"MD (General Medicine)\",\n                \"issuerId\": \"ORG008\",\n                \"issuerName\": \"All India Institute of Medical Sciences (AIIMS)\",\n                \"issuerLogoUrl\": \"https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/ce434aad-0763-4367-a8ac-342b4269abec.png\",\n                \"issuedDt\": \"2022-02-26\",\n                \"expiryDt\": \"2025-02-26\",\n                \"credentialId\": \"24252411452626\",\n                \"credentialUrl\": \"\",\n                \"skills\": null\n            }\n        ],\n        \"about\": \"Sandhya Dokkala\",\n        \"additionalName\": \"Dokkala\",\n        \"roles\": [\n            \"DOCTOR\",\n            \"ADMIN\"\n        ],\n        \"permissions\": [\n            \"POST_JOB\"\n        ]\n    },\n    \"timeStamp\": \"2026-02-26T15:37:55.635672\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Cancelled by creator",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcyMDkxMjA5LCJleHAiOjE3NzIxNzc2MDl9.aQtRnvxFU5h3xxzRU5raHYa-Srf464IwAjkvhnFThPOS1U8gWhfD7EKN3uMBYqH1Lsv1KJMOoG3HHV8Y4zPyvw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"referralId\": \"string\"\r\n}\r\n// Once the status will be PENDING then only you can cancelle. ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/cancelled-referred",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "cancelled-referred"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send Reminder",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"creatorId\": \"DCSYNP000096\"\r\n}\r\n// Here you need to pass Referred doctorId to send the Reminder.\r\n// Don't pass here creator doctorId, just key name is only creatorId but you need to pass the Referred DoctorId.",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/send-reminder",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "send-reminder"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload Image",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcyNTQyMTUxLCJleHAiOjE3NzI1NjAxNTF9.YHVm2kHwcxTrj-r5fA4zs5SPsLmHNCiroNOL782Y8BPXOcChO9dFHHrPy5o_uf8QQn3m88gTLB7ABN8Vv6rPyw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "uuid": "642e29bf-3162-4267-b40d-a7bebd24ed2c",
+                  "src": "/C:/Users/pc/Pictures/Screenshots/Screenshot 2026-01-12 163426.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-auth/v1/auth/upload/image",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-auth",
+                "v1",
+                "auth",
+                "upload",
+                "image"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Referral Doctor",
+      "item": [
+        {
+          "name": "Update Status Accept/Reject",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwOTYiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxMzI3MjIwLCJleHAiOjE3NzE0MTM2MjB9.Sb3HJM-jXxEgfHmG8JJKq_WrJbHN1HQw5BKuZCtDJeSjkr15TSOa9-Y0ATXjOXcgWRhi_M0ySddjZA_noqhoZQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"doctorId\": \"string\",\r\n  \"status\": \"PENDING\",\r\n  \"patientId\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/doctor/update-status",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "doctor",
+                "update-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Patient Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"doctorId\": \"DCSYNP000033\",\r\n  \"patientId\": \"0702d8ed-0e47-4a34-a48e-2d8647341dfb\",\r\n  \"visitType\": \"OPD_VISIT_COMPLETED\"\r\n}\r\n// ADMITTED, OPD_VISIT_COMPLETED, DISCHARGED, REJECTED",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/doctor/update/patient-status",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "doctor",
+                "update",
+                "patient-status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Referral Count",
+      "item": [
+        {
+          "name": "Referred Count",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"doctorId\": \"DCSYNP000003\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/referredCount-view",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "referredCount-view"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Received Count",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcyNTE5NzUzLCJleHAiOjE3NzI1Mzc3NTN9.NjAIZy4iRh70_DuHNtJUolzcednyTyf2_Uo_ctA41rMo1UCWRtulaH-Guj7tIN4eYOswc6YFLXgMQELX0mFBGw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"doctorId\": \"DCSYNP000033\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/receivedCount-view",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "receivedCount-view"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Referral Credit Point",
+      "item": [
+        {
+          "name": "Get By Receiver",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"receiverId\": \"DCSYNP000085\",\r\n // \"searchKey\" : \"String\"   SearchKey is optional. if you want to search based on the senderName or receiverName then you need to pass.\r\n}\r\n// here you will get the Two status  SENT, COMPLETED. ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/creditPoint/getByReceiver?page=0&size=10",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "creditPoint",
+                "getByReceiver"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Sender",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"senderId\": \"DCSYNP000085\",\r\n // \"searchKey\" : \"String\"   SearchKey is optional. if you want to search based on the senderName or receiverName then you need to pass.\r\n}\r\n// here you will get the Three status  PENDING, SENT, COMPLETED. ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/creditPoint/getBySender?page=0&size=10",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "creditPoint",
+                "getBySender"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Status By Receiver",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \r\n  \"receiverId\": \"DCSYNP000085\",\r\n  \"creditStatus\": \"ACCEPTED\",\r\n  \"referralId\": \"c632f15a-7b18-4a77-95c9-331923e9f516\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/creditPoint/update-status/byReceiver",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "creditPoint",
+                "update-status",
+                "byReceiver"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Status By Sender",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcxOTIwMDYxLCJleHAiOjE3NzIwMDY0NjF9.jBJtXyNa6RPqq5xazZKqz_9NDibWJYD2GPTszGgLfiAUKtCOSYzJs81QE7zfxVc7YMKMPnMyzohdFoDZ7jlMKA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"senderId\": \"DCSYNP000085\",\r\n  \"creditStatus\": \"SENT\",\r\n  \"referralId\": \"c632f15a-7b18-4a77-95c9-331923e9f516\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/creditPoint/update-status/bySender",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "creditPoint",
+                "update-status",
+                "bySender"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Frequently Referred Doctor",
+      "item": [
+        {
+          "name": "Frequently Referred Doctor",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAwMzMiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzcyNTE5NzUzLCJleHAiOjE3NzI1Mzc3NTN9.NjAIZy4iRh70_DuHNtJUolzcednyTyf2_Uo_ctA41rMo1UCWRtulaH-Guj7tIN4eYOswc6YFLXgMQELX0mFBGw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n\r\n //   \"doctorName\": \"string\"  here doctorName is optional. if you want to search based on the doctorName then only you need to pass the doctorName. Other wise just pass the empty body.\r\n \r\n }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/frequenty-referred-doctor",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "frequenty-referred-doctor"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Referral Credit Header",
+      "item": [
+        {
+          "name": "Total Credit Points",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Audit-Id",
+                "value": "Indal",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"doctorId\": \"DCSYNP000075\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/dc/api-referral/v1/creditHeader",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "dc",
+                "api-referral",
+                "v1",
+                "creditHeader"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://45.127.101.116:8100/api-banner/v1/mobile/banners?bannerPosition=Middle%20Banner",
+          "protocol": "http",
+          "host": [
+            "45",
+            "127",
+            "101",
+            "116"
+          ],
+          "port": "8100",
+          "path": [
+            "api-banner",
+            "v1",
+            "mobile",
+            "banners"
+          ],
+          "query": [
+            {
+              "key": "bannerPosition",
+              "value": "Middle%20Banner"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request Copy",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEQ1NZTlAwMDAxMTgiLCJhdXRob3JpdGllcyI6IlJPTEVfRE9DVE9SIiwiaWF0IjoxNzc0NDE2NDIwLCJleHAiOjE3NzQ1MDI4MjB9.0nbd07ghOu6zViAc6Tg7MaVbIfp-cBxHcCwiRJeLjL181SX4kLDARZ9mp-ridASkclMbYyVb0AndAY-IjItaIQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://45.127.101.116:8100/api-banner/v1/mobile/banners?bannerPosition=Middle%20Banner",
+          "protocol": "http",
+          "host": [
+            "45",
+            "127",
+            "101",
+            "116"
+          ],
+          "port": "8100",
+          "path": [
+            "api-banner",
+            "v1",
+            "mobile",
+            "banners"
+          ],
+          "query": [
+            {
+              "key": "bannerPosition",
+              "value": "Middle%20Banner"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    }
+  ]
+}

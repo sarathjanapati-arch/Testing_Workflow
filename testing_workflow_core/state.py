@@ -15,3 +15,16 @@ class WorkflowState(TypedDict):
     results: list[dict[str, Any]]
     agent_summaries: list[dict[str, Any]]
     errors: list[str]
+
+
+class AgenticWorkflowState(TypedDict):
+    tests_file: str
+    report_file: str
+    default_timeout_seconds: float
+    suite: dict[str, Any]
+    run_id: str
+    prefetched_context: dict[str, Any]
+    master_api_checks: list[dict[str, Any]]
+    results: list[dict[str, Any]]
+    agent_summaries: list[dict[str, Any]]
+    errors: list[str]

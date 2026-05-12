@@ -73,7 +73,7 @@ flowchart TD
 
 1. `prepare_step_context`
 - Build signup payload with unique values:
-  - `email`: `doctor+{run_id}_{user_index}_{rand}@example.com`
+  - `email`: `doctor.{run_id}.{user_index}.{rand}@example.com`
   - `mobileNumber`: randomized unique value
 
 2. `execute_request`

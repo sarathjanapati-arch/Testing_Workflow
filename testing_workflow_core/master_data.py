@@ -39,17 +39,19 @@ def _post_json(url: str, api_key: str, body: dict[str, Any], timeout_seconds: fl
     return payload
 
 
-def _pick_specialization_id(items: list[dict[str, Any]], preferred_id: str | None) -> str:
+def _pick_specialization_id(items: list[dict[str, Any]], preferred_id: str | None) -> str | None:
     if preferred_id:
         for item in items:
             if str(item.get("id")) == preferred_id:
                 return preferred_id
     if not items:
-        raise RuntimeError("No specialization data returned.")
+        return None
     return str(items[0].get("id"))
 
 
-def _lookup_specialization_name(items: list[dict[str, Any]], specialization_id: str) -> str:
+def _lookup_specialization_name(items: list[dict[str, Any]], specialization_id: str | None) -> str | None:
+    if specialization_id is None:
+        return None
     for item in items:
         if str(item.get("id")) == specialization_id:
             name = item.get("name") or item.get("specialization_name")
@@ -98,14 +100,14 @@ def _normalize_company_items(items: list[dict[str, Any]]) -> list[dict[str, Any]
     return normalized
 
 
-def _fetch_companies_from_postgres() -> list[dict[str, Any]]:
+def _pg_query(query: str, table_env: str, table_default: str) -> list[dict[str, Any]]:
     host = os.getenv("PG_HOST", "").strip()
     port = int(os.getenv("PG_PORT", "5432"))
     dbname = os.getenv("PG_DATABASE", "").strip()
     user = os.getenv("PG_USER", "").strip()
     password = os.getenv("PG_PASSWORD", "").strip()
     schema = os.getenv("PG_SCHEMA", "doc_common").strip()
-    table = os.getenv("PG_COMPANIES_TABLE", "companies").strip()
+    table = os.getenv(table_env, table_default).strip()
 
     if not all([host, dbname, user, password]):
         raise RuntimeError("PostgreSQL settings are incomplete. Set PG_HOST, PG_DATABASE, PG_USER, PG_PASSWORD.")
@@ -118,7 +120,7 @@ def _fetch_companies_from_postgres() -> list[dict[str, Any]]:
             "PostgreSQL driver not installed. Install 'psycopg[binary]' in requirements."
         ) from err
 
-    query = f'SELECT * FROM "{schema}"."{table}"'
+    full_query = query.format(schema=schema, table=table)
     with psycopg.connect(
         host=host,
         port=port,
@@ -128,43 +130,25 @@ def _fetch_companies_from_postgres() -> list[dict[str, Any]]:
         connect_timeout=10,
     ) as conn:
         with conn.cursor(row_factory=dict_row) as cur:
-            cur.execute(query)
-            rows = cur.fetchall()
-    return _normalize_company_items(list(rows))
+            cur.execute(full_query)
+            return list(cur.fetchall())
+
+
+def _fetch_companies_from_postgres() -> list[dict[str, Any]]:
+    rows = _pg_query(
+        'SELECT * FROM "{schema}"."{table}"',
+        table_env="PG_COMPANIES_TABLE",
+        table_default="companies",
+    )
+    return _normalize_company_items(rows)
 
 
 def _fetch_main_specializations_from_postgres() -> list[dict[str, Any]]:
-    host = os.getenv("PG_HOST", "").strip()
-    port = int(os.getenv("PG_PORT", "5432"))
-    dbname = os.getenv("PG_DATABASE", "").strip()
-    user = os.getenv("PG_USER", "").strip()
-    password = os.getenv("PG_PASSWORD", "").strip()
-    schema = os.getenv("PG_SCHEMA", "doc_common").strip()
-    table = os.getenv("PG_MAIN_SPECIALIZATIONS_TABLE", "main_specializations").strip()
-
-    if not all([host, dbname, user, password]):
-        raise RuntimeError("PostgreSQL settings are incomplete. Set PG_HOST, PG_DATABASE, PG_USER, PG_PASSWORD.")
-
-    try:
-        import psycopg
-        from psycopg.rows import dict_row
-    except Exception as err:
-        raise RuntimeError(
-            "PostgreSQL driver not installed. Install 'psycopg[binary]' in requirements."
-        ) from err
-
-    query = f'SELECT id, name FROM "{schema}"."{table}"'
-    with psycopg.connect(
-        host=host,
-        port=port,
-        dbname=dbname,
-        user=user,
-        password=password,
-        connect_timeout=10,
-    ) as conn:
-        with conn.cursor(row_factory=dict_row) as cur:
-            cur.execute(query)
-            rows = cur.fetchall()
+    rows = _pg_query(
+        'SELECT id, name FROM "{schema}"."{table}"',
+        table_env="PG_MAIN_SPECIALIZATIONS_TABLE",
+        table_default="main_specializations",
+    )
     return [{"id": str(row.get("id")), "name": str(row.get("name", ""))} for row in rows if row.get("id")]
 
 
@@ -247,6 +231,8 @@ def fetch_master_data(context: dict[str, Any]) -> dict[str, Any]:
             )
 
     main_id = _pick_specialization_id(main_items, str(preferred_main) if preferred_main else None)
+    if main_id is None:
+        raise RuntimeError("No main specialization ID could be resolved from API or database.")
 
     sub_payload = call_master_api(
         "specializations_sub_search",
@@ -262,7 +248,14 @@ def fetch_master_data(context: dict[str, Any]) -> dict[str, Any]:
         {"specializationType": "ADDITIONAL_SUB", "subSpecializationId": sub_id, "search": ""},
     )
     additional_items = list(additional_payload.get("data", []))
-    additional_id = _pick_specialization_id(additional_items, str(preferred_additional) if preferred_additional else None)
+    # Only resolve additional_specialization_id when the context explicitly provides one.
+    # A null/absent value means the doctor does not require an additional specialization;
+    # forcing the first API result would send an ID the auth service cannot resolve.
+    additional_id = (
+        _pick_specialization_id(additional_items, str(preferred_additional))
+        if preferred_additional is not None
+        else None
+    )
 
     company_source = os.getenv("MASTER_DATA_COMPANY_SOURCE", "auto").strip().lower()
     company_items: list[dict[str, Any]] = []
@@ -305,13 +298,15 @@ def fetch_master_data(context: dict[str, Any]) -> dict[str, Any]:
     )
     specialization_name = _lookup_specialization_name(main_items, main_id)
 
-    return {
+    result: dict[str, Any] = {
         "specialization_id": main_id,
         "specialization_name": specialization_name,
         "sub_specialization_id": sub_id,
-        "additional_specialization_id": additional_id,
         "company_id": company_id,
         "specialization_source": "postgres" if used_postgres_specializations else "api",
         "company_source": "postgres" if used_postgres else "api",
         "master_api_checks": master_checks,
     }
+    if additional_id is not None:
+        result["additional_specialization_id"] = additional_id
+    return result

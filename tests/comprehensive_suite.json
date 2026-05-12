@@ -1,0 +1,1633 @@
+{
+  "run": {
+    "virtual_users": 3,
+    "iterations_per_user": 1,
+    "max_workers": 3,
+    "ramp_up_seconds": 3
+  },
+  "context": {
+    "base_url": "https://dsapi.thelocal.co.in",
+    "base_url_4040": "https://dsapi.thelocal.co.in:4040",
+    "doctor_email": "{{doctor_email_local}}.{{run_email_suffix}}@example.com",
+    "doctor_mobile": "{{run_mobile}}",
+    "doctor_password": "AnanyaReddy@2026",
+    "doctor_fullname": "{{doctor_fullname}}",
+    "medical_council_board": "Andhra Pradesh Medical Council",
+    "registration_number": "{{registration_number}}",
+    "specialization_id": "MS03",
+    "sub_specialization_id": "SS01",
+    "additional_specialization_id": "AS01",
+    "short_bio": "Interventional cardiologist focused on preventive and critical cardiac care.",
+    "years_of_experience": 12,
+    "date_of_birth": "1988-09-17",
+    "gender": "Female",
+    "open_to_referrals": "Y",
+    "expert_opinions": "Y",
+    "medical_id_url": "https://example.com/docs/medical-id.pdf",
+    "profile_photo_url": "https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/e04a8228-ccee-4794-95e3-3d2a6a19474b.jpg",
+    "cover_photo_url": "https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/e04a8228-ccee-4794-95e3-3d2a6a19474b.jpg",
+    "company_name": "KIMS-Vijayawada Multispeciality Hospital",
+    "interest_1": "MS03",
+    "interest_2": "Thoracic Surgery",
+    "known_like_post_id": "7d01356b-dfa5-4493-ae47-279db1b43ed2",
+    "known_update_post_id": "06b66942-85cd-40bf-be73-4d23b409a7c4",
+    "known_delete_post_id": "06b66942-85cd-40bf-be73-4d23b409a7c4",
+    "known_likes_post_id": "c2e5fbf1-e4d7-40d4-aab1-556bda7d6058",
+    "known_detail_post_id": "4e26e267-bada-40e6-9cb5-14f5b9781894",
+    "known_feed_cursor": 1971929698724,
+    "doctor_search_payload": {
+      "userId": "{{signin_doctor_id}}",
+      "search": ""
+    },
+    "create_post_payload": {
+      "authorId": "{{signin_doctor_id}}",
+      "content": "{{post_content}}",
+      "imgUrls": [
+        "https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/e04a8228-ccee-4794-95e3-3d2a6a19474b.jpg"
+      ],
+      "videoUrl": null,
+      "visibility": "ANYONE",
+      "tags": [
+        "{{post_tag_1}}",
+        "{{post_tag_2}}",
+        "{{post_tag_3}}"
+      ],
+      "mentions": []
+    },
+    "home_feed_payload": {
+      "id": "{{signin_doctor_id}}"
+    },
+    "profile_posts_payload": {
+      "id": "{{signin_doctor_id}}"
+    },
+    "post_reaction_payload": {
+      "postId": "{{known_like_post_id}}",
+      "userId": "{{signin_doctor_id}}",
+      "reactionType": "LIKE"
+    },
+    "update_post_payload": {
+      "authorId": "{{signin_doctor_id}}",
+      "postId": "{{known_update_post_id}}",
+      "content": "{{update_post_content}}",
+      "imgUrls": [
+        "https://acintyotech-public.s3.ap-south-1.amazonaws.com/assets/e04a8228-ccee-4794-95e3-3d2a6a19474b.jpg"
+      ],
+      "videoUrl": null,
+      "visibility": "ANYONE",
+      "tags": [
+        "{{post_tag_1}}",
+        "{{post_tag_2}}",
+        "{{post_tag_3}}"
+      ],
+      "mentions": []
+    },
+    "delete_post_payload": {
+      "id": "{{known_delete_post_id}}"
+    },
+    "post_likes_payload": {
+      "viewerId": "{{signin_doctor_id}}",
+      "postId": "{{known_likes_post_id}}",
+      "size": "10",
+      "reactionType": "LIKE"
+    },
+    "friend_request_payload": {
+      "doctorId": "{{signin_doctor_id}}",
+      "targetId": "{{peer_doctor_id}}",
+      "action": "SEND"
+    },
+    "home_feed_cursor_payload": {
+      "viewerId": "{{signin_doctor_id}}",
+      "cursor": "{{known_feed_cursor}}",
+      "size": 20
+    },
+    "detail_post_payload": {
+      "viewerId": "{{signin_doctor_id}}",
+      "postId": "{{known_detail_post_id}}"
+    }
+  },
+  "workflows": [
+    {
+      "name": "Doctor Auth + Profile",
+      "steps": [
+        {
+          "name": "Doctor SignUp",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/doctor/signUp",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "medicalCouncilBoard": "{{medical_council_board}}",
+            "registrationNumber": "{{registration_number}}",
+            "fullname": "{{doctor_fullname}}",
+            "specializationId": "{{specialization_id}}",
+            "subSpecializationId": "{{sub_specialization_id}}",
+            "shortBio": "{{short_bio}}",
+            "yearsOfExperience": "{{years_of_experience}}",
+            "dateOfBirth": "{{date_of_birth}}",
+            "email": "{{doctor_email}}",
+            "mobileNumber": "{{doctor_mobile}}",
+            "gender": "{{gender}}",
+            "rawPassword": "{{doctor_password}}",
+            "password": "{{doctor_password}}",
+            "pazzword": "{{doctor_password}}",
+            "experience": [
+              {
+                "companyId": "{{company_id}}",
+                "companyName": "{{company_name}}",
+                "jobTitle": "Senior Cardiologist",
+                "currentlyWorking": "Y",
+                "startDate": "2015-06-01"
+              }
+            ],
+            "medicalIdUrl": "{{medical_id_url}}",
+            "openToReferrals": "{{open_to_referrals}}",
+            "expertOpinions": "{{expert_opinions}}",
+            "consultationMode": [
+              "IN_PERSON",
+              "TELEMEDICINE"
+            ],
+            "profilePhotoId": "{{profile_photo_url}}",
+            "coverPhotoId": "{{cover_photo_url}}",
+            "interested": [
+              "{{interest_1}}",
+              "{{interest_2}}"
+            ]
+          },
+          "required_fields": [
+            "json.medicalCouncilBoard",
+            "json.registrationNumber",
+            "json.fullname",
+            "json.specializationId",
+            "json.shortBio",
+            "json.yearsOfExperience",
+            "json.dateOfBirth",
+            "json.email",
+            "json.mobileNumber",
+            "json.gender",
+            "json.password",
+            "json.experience",
+            "json.experience.0.companyId",
+            "json.experience.0.companyName",
+            "json.experience.0.jobTitle",
+            "json.experience.0.currentlyWorking",
+            "json.experience.0.startDate",
+            "json.openToReferrals",
+            "json.expertOpinions",
+            "json.consultationMode"
+          ],
+          "timeout_seconds": 20,
+          "retries": 3,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 201,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "doctor_id": "data.id",
+            "doctor_access_token": "data.token",
+            "doctor_refresh_token": "data.refreshToken",
+            "account_verified": "data.accountVerified"
+          }
+        },
+        {
+          "name": "Doctor SignIn",
+          "depends_on": "Doctor SignUp",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/doctor/signIn",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "email": "{{doctor_email}}",
+            "password": "{{doctor_password}}",
+            "fcmToken": ""
+          },
+          "required_fields": [
+            "json.email",
+            "json.password"
+          ],
+          "timeout_seconds": 20,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "signin_doctor_id": "data.id",
+            "signin_access_token": "data.token",
+            "signin_refresh_token": "data.refreshToken"
+          },
+          "retries": 5,
+          "retry_delay_seconds": 1.0,
+          "retry_on_status_codes": [
+            401,
+            408,
+            425,
+            429,
+            500,
+            502,
+            503,
+            504
+          ]
+        },
+        {
+          "name": "Update Intro",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/update/intro",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "fullname": "{{doctor_fullname}}",
+            "headLine": "{{doctor_fullname}} - {{specialization_name}}",
+            "additionalName": "{{doctor_last_name}}",
+            "country": "India",
+            "city": "Hyderabad"
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.fullname",
+            "json.headLine",
+            "json.country",
+            "json.city"
+          ],
+          "timeout_seconds": 10,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true,
+              "data.success": true
+            }
+          }
+        },
+        {
+          "name": "Add Experience",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/add/experience",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "experience": {
+              "companyId": "{{company_id}}",
+              "companyName": "{{company_name}}",
+              "jobTitle": "Senior Cardiologist",
+              "currentlyWorking": "Y",
+              "startDate": "2018-01-01"
+            }
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.experience.companyId",
+            "json.experience.companyName",
+            "json.experience.jobTitle",
+            "json.experience.currentlyWorking",
+            "json.experience.startDate"
+          ],
+          "save": {
+            "experience_id": "data.0.id"
+          },
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Update Experience",
+          "enabled": true,
+          "depends_on": "Add Experience",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/update/experience",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "experienceId": "{{experience_id}}",
+            "experience": {
+              "companyId": "{{company_id}}",
+              "companyName": "{{company_name}}",
+              "jobTitle": "Consultant Cardiologist",
+              "currentlyWorking": "Y",
+              "startDate": "2018-01-01"
+            }
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.experienceId",
+            "json.experience.companyId",
+            "json.experience.companyName",
+            "json.experience.jobTitle",
+            "json.experience.currentlyWorking",
+            "json.experience.startDate"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Add Education",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/add/education",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "education": {
+              "degreeName": "MD",
+              "schoolName": "Andhra Medical College",
+              "fieldName": "Cardiology",
+              "startDate": "2009-06-01",
+              "endDate": "2012-05-31",
+              "grade": "A"
+            }
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.education.degreeName",
+            "json.education.schoolName",
+            "json.education.fieldName",
+            "json.education.startDate",
+            "json.education.endDate"
+          ],
+          "save": {
+            "education_id": "data.0.educationId"
+          },
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Update Education",
+          "enabled": true,
+          "depends_on": "Add Education",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/update/education",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "educationId": "{{education_id}}",
+            "education": {
+              "degreeName": "MD",
+              "schoolName": "Updated Andhra Medical College",
+              "fieldName": "Cardiology",
+              "startDate": "2009-06-01",
+              "endDate": "2012-05-31",
+              "grade": "A+"
+            }
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.educationId",
+            "json.education.degreeName",
+            "json.education.schoolName",
+            "json.education.fieldName",
+            "json.education.startDate",
+            "json.education.endDate"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Add Language",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/add/language",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "language": "English",
+            "proficiencyLevel": "PROFESSIONAL"
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.language",
+            "json.proficiencyLevel"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Add Skill",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/add/skill",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "skillName": "Coronary Angioplasty",
+            "sources": []
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.skillName"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Update Cover Photo",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/update/cover/image",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "coverPhotoId": "{{cover_photo_url}}"
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.coverPhotoId"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        }
+      ]
+    },
+    {
+      "name": "Post Service + Network",
+      "steps": [
+        {
+          "name": "Doctor Search",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/get/doctor/profiles/search",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{doctor_search_payload}}",
+          "required_fields": [
+            "json.userId"
+          ],
+          "retries": 2,
+          "retry_delay_seconds": 0.2,
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Create Post",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/create-post",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{create_post_payload}}",
+          "required_fields": [
+            "json.authorId",
+            "json.content",
+            "json.visibility"
+          ],
+          "expected": {
+            "status_code": 201
+          }
+        },
+        {
+          "name": "Get Home Feed",
+          "enabled": true,
+          "depends_on": "Create Post",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/get/user/home/feed",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{home_feed_payload}}",
+          "required_fields": [
+            "json.id"
+          ],
+          "retries": 2,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Get Profile Posts",
+          "enabled": true,
+          "depends_on": "Create Post",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/get/profile/posts",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{profile_posts_payload}}",
+          "required_fields": [
+            "json.id"
+          ],
+          "retries": 3,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Post Like",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/posts/reactions",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{post_reaction_payload}}",
+          "required_fields": [
+            "json.postId",
+            "json.userId",
+            "json.reactionType"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Update Post",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/update-post",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{update_post_payload}}",
+          "required_fields": [
+            "json.authorId",
+            "json.postId",
+            "json.content",
+            "json.visibility"
+          ],
+          "expected": {
+            "status_code": 201
+          }
+        },
+        {
+          "name": "Get Likes",
+          "enabled": true,
+          "depends_on": "Post Like",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/post/likes",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{post_likes_payload}}",
+          "required_fields": [
+            "json.viewerId",
+            "json.postId",
+            "json.size",
+            "json.reactionType"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Home Feed Using Cursor",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/get/home/feed",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{home_feed_cursor_payload}}",
+          "required_fields": [
+            "json.viewerId",
+            "json.cursor",
+            "json.size"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Get Detail Post",
+          "enabled": true,
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/get/detail/post",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{detail_post_payload}}",
+          "required_fields": [
+            "json.viewerId",
+            "json.postId"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Send Connection Request",
+          "enabled": false,
+          "depends_on": "Get Detail Post",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-network/v1/friend/request",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{friend_request_payload}}",
+          "required_fields": [
+            "json.doctorId",
+            "json.targetId",
+            "json.action"
+          ],
+          "expected": {
+            "status_code": 200
+          }
+        },
+        {
+          "name": "Delete Post",
+          "enabled": false,
+          "depends_on": "Get Detail Post",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-post/v1/delete-post",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": "{{delete_post_payload}}",
+          "required_fields": [
+            "json.id"
+          ],
+          "expected": {
+            "status_code": 201
+          }
+        }
+      ]
+    },
+    {
+      "name": "Referral Auth + Master Data",
+      "steps": [
+        {
+          "name": "Doctor SignUp",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/doctor/signUp",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "medicalCouncilBoard": "{{medical_council_board}}",
+            "registrationNumber": "{{registration_number}}",
+            "fullname": "{{doctor_fullname}}",
+            "specializationId": "{{specialization_id}}",
+            "subSpecializationId": "{{sub_specialization_id}}",
+            "additionalSpecializationId": "{{additional_specialization_id}}",
+            "shortBio": "{{short_bio}}",
+            "yearsOfExperience": "{{years_of_experience}}",
+            "dateOfBirth": "{{date_of_birth}}",
+            "email": "{{doctor_email}}",
+            "mobileNumber": "{{doctor_mobile}}",
+            "gender": "{{gender}}",
+            "rawPassword": "{{doctor_password}}",
+            "password": "{{doctor_password}}",
+            "pazzword": "{{doctor_password}}",
+            "experience": [
+              {
+                "companyId": "{{company_id}}",
+                "companyName": "{{company_name}}",
+                "jobTitle": "Senior Cardiologist",
+                "currentlyWorking": "Y",
+                "startDate": "2015-06-01"
+              }
+            ],
+            "medicalIdUrl": "{{medical_id_url}}",
+            "openToReferrals": "{{open_to_referrals}}",
+            "expertOpinions": "{{expert_opinions}}",
+            "consultationMode": [
+              "IN_PERSON",
+              "TELEMEDICINE"
+            ],
+            "profilePhotoId": "{{profile_photo_url}}",
+            "coverPhotoId": "{{cover_photo_url}}",
+            "interested": [
+              "{{interest_1}}",
+              "{{interest_2}}"
+            ]
+          },
+          "required_fields": [
+            "json.medicalCouncilBoard",
+            "json.registrationNumber",
+            "json.fullname",
+            "json.specializationId",
+            "json.shortBio",
+            "json.yearsOfExperience",
+            "json.dateOfBirth",
+            "json.email",
+            "json.mobileNumber",
+            "json.gender",
+            "json.password",
+            "json.experience",
+            "json.experience.0.companyId",
+            "json.experience.0.companyName",
+            "json.experience.0.jobTitle",
+            "json.experience.0.currentlyWorking",
+            "json.experience.0.startDate",
+            "json.openToReferrals",
+            "json.expertOpinions",
+            "json.consultationMode"
+          ],
+          "timeout_seconds": 20,
+          "retries": 3,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 201,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "doctor_id": "data.id",
+            "doctor_access_token": "data.token",
+            "doctor_refresh_token": "data.refreshToken"
+          }
+        },
+        {
+          "name": "Doctor SignIn",
+          "depends_on": "Doctor SignUp",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/auth/doctor/signIn",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "email": "{{doctor_email}}",
+            "password": "{{doctor_password}}",
+            "fcmToken": ""
+          },
+          "required_fields": [
+            "json.email",
+            "json.password"
+          ],
+          "timeout_seconds": 20,
+          "retries": 3,
+          "retry_delay_seconds": 2.0,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "signin_doctor_id": "data.id",
+            "signin_access_token": "data.token",
+            "signin_refresh_token": "data.refreshToken"
+          },
+          "retry_on_status_codes": [
+            401,
+            408,
+            425,
+            429,
+            500,
+            502,
+            503,
+            504
+          ]
+        },
+        {
+          "name": "Update Intro",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/update/intro",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}",
+            "fullname": "{{doctor_fullname}}",
+            "headLine": "{{doctor_fullname}} - {{specialization_name}}",
+            "additionalName": "{{doctor_last_name}}",
+            "country": "India",
+            "city": "Hyderabad"
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.fullname",
+            "json.headLine",
+            "json.country",
+            "json.city"
+          ],
+          "timeout_seconds": 10,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true,
+              "data.success": true
+            }
+          }
+        },
+        {
+          "name": "Get All Main Specializations",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/master/specializations/search",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "specializationType": "MAIN"
+          },
+          "required_fields": [
+            "json.specializationType"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Get All Sub Specializations",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/master/specializations/search",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "specializationType": "SUB"
+          },
+          "required_fields": [
+            "json.specializationType"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Get All Doctors",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/get/all/doctors",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {},
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Get Doctor By Id",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-auth/v1/doctor/get/by-id",
+          "headers": {
+            "ACIN-API-KEY": "{{api_key}}",
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "id": "{{peer_doctor_id}}"
+          },
+          "required_fields": [
+            "json.id"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Referral CRUD",
+      "steps": [
+        {
+          "name": "Create Referral",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/create-referral",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{signin_doctor_id}}",
+            "patientName": "Test Patient Kumar",
+            "patientAge": 45,
+            "patientGender": "MALE",
+            "patientContactNumber": "9876543210",
+            "patientEmail": "testpatient.kumar@example.com",
+            "concern": "Chest pain and shortness of breath for automated testing",
+            "specializationId": "MS03",
+            "subSpecializationId": "SS01",
+            "reportUrl": "https://example.com/reports/test-ecg-report.pdf",
+            "referralPoints": 100,
+            "priorityType": "ROUTINE",
+            "followUpFlag": "N",
+            "listOfDoctorIds": [
+              "{{peer_doctor_id}}"
+            ],
+            "specializationName": "Cardiology",
+            "subSpecializationName": "Interventional Cardiology",
+            "specificCondition": "Suspected Acute Coronary Syndrome"
+          },
+          "required_fields": [
+            "json.creatorId",
+            "json.patientName",
+            "json.specializationId",
+            "json.listOfDoctorIds",
+            "json.listOfDoctorIds.0",
+            "json.priorityType"
+          ],
+          "timeout_seconds": 20,
+          "retries": 2,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 201,
+            "json_path_equals": {
+              "success": true
+            },
+            "body_contains": [
+              "Referral Saved"
+            ]
+          }
+        },
+        {
+          "name": "Get All Referred By Creator",
+          "depends_on": "Create Referral",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/getAllReferred/byCreator",
+          "params": {
+            "page": "0",
+            "size": "10"
+          },
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{signin_doctor_id}}"
+          },
+          "required_fields": [
+            "json.creatorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "referral_id": "data.content.0.id"
+          }
+        },
+        {
+          "name": "Get Referral By Id",
+          "depends_on": "Get All Referred By Creator",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/getByReferalId",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "referralId": "{{referral_id}}"
+          },
+          "required_fields": [
+            "json.referralId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "doctor_response_id": "data.doctorResponseDtos.0.id"
+          }
+        },
+        {
+          "name": "Total Referred Patients PENDING",
+          "depends_on": "Create Referral",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/total-referred/patients",
+          "params": {
+            "page": "0",
+            "size": "10"
+          },
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{signin_doctor_id}}",
+            "status": "PENDING"
+          },
+          "required_fields": [
+            "json.creatorId",
+            "json.status"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Update Referral",
+          "depends_on": "Get Referral By Id",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/update-referral",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "refferalId": "{{referral_id}}",
+            "creatorId": "{{signin_doctor_id}}",
+            "patientName": "Updated Test Patient Kumar",
+            "patientAge": 46,
+            "patientGender": "MALE",
+            "patientContactNumber": "9876543210",
+            "patientEmail": "testpatient.kumar@example.com",
+            "concern": "Updated: Chest pain, shortness of breath, and dizziness",
+            "specializationId": "MS03",
+            "subSpecializationId": "SS01",
+            "reportUrl": "https://example.com/reports/updated-ecg-report.pdf",
+            "referralPoints": 120,
+            "priorityType": "EMERGENCY",
+            "followUpFlag": "Y",
+            "listOfDoctorIds": [
+              "{{peer_doctor_id}}"
+            ]
+          },
+          "required_fields": [
+            "json.refferalId",
+            "json.creatorId",
+            "json.patientName"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 201,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Send Reminder",
+          "depends_on": "Get Referral By Id",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/send-reminder",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{peer_doctor_id}}"
+          },
+          "required_fields": [
+            "json.creatorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Referred Count",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/referredCount-view",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}"
+          },
+          "required_fields": [
+            "json.doctorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Received Count",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/receivedCount-view",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}"
+          },
+          "required_fields": [
+            "json.doctorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Frequently Referred Doctor",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/frequenty-referred-doctor",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {},
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Referred Doctor Accept Flow",
+      "steps": [
+        {
+          "name": "Update Status Accept",
+          "depends_on": "Get Referral By Id",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/doctor/update-status",
+          "headers": {
+            "Authorization": "Bearer {{peer_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{peer_doctor_id}}",
+            "status": "ACCEPTED",
+            "patientId": "{{referral_id}}"
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.status",
+            "json.patientId"
+          ],
+          "timeout_seconds": 20,
+          "retries": 2,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Update Patient Status Admitted",
+          "depends_on": "Update Status Accept",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/doctor/update/patient-status",
+          "headers": {
+            "Authorization": "Bearer {{peer_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{peer_doctor_id}}",
+            "patientId": "{{referral_id}}",
+            "visitType": "ADMITTED"
+          },
+          "required_fields": [
+            "json.doctorId",
+            "json.patientId",
+            "json.visitType"
+          ],
+          "timeout_seconds": 20,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Total Received Patients",
+          "depends_on": "Update Status Accept",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/total-received/patients",
+          "params": {
+            "page": "0",
+            "size": "10"
+          },
+          "headers": {
+            "Authorization": "Bearer {{peer_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{peer_doctor_id}}",
+            "status": "ACCEPTED"
+          },
+          "required_fields": [
+            "json.creatorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Total Referred Patients Accepted",
+          "depends_on": "Update Status Accept",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/total-referred/patients",
+          "params": {
+            "page": "0",
+            "size": "10"
+          },
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{signin_doctor_id}}",
+            "status": "ACCEPTED"
+          },
+          "required_fields": [
+            "json.creatorId",
+            "json.status"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Credit Point Tracking",
+      "steps": [
+        {
+          "name": "Total Credit Points Header",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/creditHeader",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "doctorId": "{{signin_doctor_id}}"
+          },
+          "required_fields": [
+            "json.doctorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Get Credit Points By Sender",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/creditPoint/getBySender",
+          "params": {
+            "page": "0",
+            "size": "10"
+          },
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "senderId": "{{signin_doctor_id}}"
+          },
+          "required_fields": [
+            "json.senderId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Get Credit Points By Receiver",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/creditPoint/getByReceiver",
+          "params": {
+            "page": "0",
+            "size": "10"
+          },
+          "headers": {
+            "Authorization": "Bearer {{peer_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "receiverId": "{{peer_doctor_id}}"
+          },
+          "required_fields": [
+            "json.receiverId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Update Credit Status By Sender",
+          "depends_on": "Update Patient Status Admitted",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/creditPoint/update-status/bySender",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "senderId": "{{signin_doctor_id}}",
+            "creditStatus": "SENT",
+            "referralId": "{{referral_id}}"
+          },
+          "required_fields": [
+            "json.senderId",
+            "json.creditStatus",
+            "json.referralId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Update Credit Status By Receiver",
+          "depends_on": "Update Credit Status By Sender",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/creditPoint/update-status/byReceiver",
+          "headers": {
+            "Authorization": "Bearer {{peer_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "receiverId": "{{peer_doctor_id}}",
+            "creditStatus": "ACCEPTED",
+            "referralId": "{{referral_id}}"
+          },
+          "required_fields": [
+            "json.receiverId",
+            "json.creditStatus",
+            "json.referralId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cancel & Delete",
+      "steps": [
+        {
+          "name": "Create Cancel Test Referral",
+          "depends_on": "Doctor SignIn",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/create-referral",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{signin_doctor_id}}",
+            "patientName": "Cancel Test Patient",
+            "patientAge": 35,
+            "patientGender": "FEMALE",
+            "patientContactNumber": "9876543211",
+            "patientEmail": "canceltest@example.com",
+            "concern": "Cancel flow test - automated testing",
+            "specializationId": "MS03",
+            "subSpecializationId": "SS01",
+            "reportUrl": "https://example.com/reports/cancel-test-report.pdf",
+            "referralPoints": 50,
+            "priorityType": "ROUTINE",
+            "followUpFlag": "N",
+            "listOfDoctorIds": [
+              "{{peer_doctor_id}}"
+            ],
+            "specializationName": "Cardiology",
+            "subSpecializationName": "Interventional Cardiology",
+            "specificCondition": "Cancel test condition"
+          },
+          "required_fields": [
+            "json.creatorId",
+            "json.patientName",
+            "json.specializationId",
+            "json.listOfDoctorIds",
+            "json.listOfDoctorIds.0"
+          ],
+          "timeout_seconds": 20,
+          "retries": 2,
+          "retry_delay_seconds": 1.0,
+          "expected": {
+            "status_code": 201,
+            "json_path_equals": {
+              "success": true
+            },
+            "body_contains": [
+              "Referral Saved"
+            ]
+          }
+        },
+        {
+          "name": "Get All Referred for Cancel",
+          "depends_on": "Create Cancel Test Referral",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/getAllReferred/byCreator",
+          "params": {
+            "page": "0",
+            "size": "1"
+          },
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "creatorId": "{{signin_doctor_id}}"
+          },
+          "required_fields": [
+            "json.creatorId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          },
+          "save": {
+            "cancel_referral_id": "data.content.0.id"
+          }
+        },
+        {
+          "name": "Cancel Referred",
+          "depends_on": "Get All Referred for Cancel",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/cancelled-referred",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "referralId": "{{cancel_referral_id}}"
+          },
+          "required_fields": [
+            "json.referralId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "json_path_equals": {
+              "success": true
+            }
+          }
+        },
+        {
+          "name": "Delete Referral",
+          "depends_on": "Cancel Referred",
+          "method": "POST",
+          "url": "{{base_url}}/dc/api-referral/v1/delete-referral",
+          "headers": {
+            "Authorization": "Bearer {{signin_access_token}}",
+            "Content-Type": "application/json"
+          },
+          "json": {
+            "referralId": "{{cancel_referral_id}}"
+          },
+          "required_fields": [
+            "json.referralId"
+          ],
+          "timeout_seconds": 15,
+          "expected": {
+            "status_code": 200,
+            "body_contains": "Referral deleted successfully"
+          }
+        }
+      ]
+    }
+  ]
+}

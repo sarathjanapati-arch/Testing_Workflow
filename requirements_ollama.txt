@@ -1,0 +1,13 @@
+langgraph
+requests
+python-dotenv
+psycopg[binary]
+pillow
+streamlit
+pandas
+langchain-core
+langchain-ollama
+langchain-community
+langchain-classic
+diffusers
+torch

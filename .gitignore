@@ -11,3 +11,5 @@ tmp/
 
 # Ad-hoc probe files
 tmp_*.json
+/*-export.csv
+/*_export.csv
